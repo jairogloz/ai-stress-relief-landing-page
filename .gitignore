@@ -1,0 +1,34 @@
+# Ignore node_modules directory
+node_modules/
+
+# Ignore log files
+*.log
+
+# Ignore temporary files
+*.tmp
+*.temp
+
+# Ignore build directories
+dist/
+build/
+
+# Ignore OS generated files
+.DS_Store
+Thumbs.db
+
+# Ignore IDE specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Ignore compiled files
+*.out
+*.o
+
+# Ignore environment variables file
+.env
+
+# Ignore images folder to save space, you can add your own images
+# directly to the project
+images/
