@@ -27,6 +27,27 @@
 				<input type="submit" value="Sign Me Up!" />
 			</form>
 
+			<script>
+				document.getElementById('signup-form').addEventListener('submit', async (e) => {
+					e.preventDefault();
+
+					// todo: validate email address
+
+					const email = document.getElementById('email').value;
+					const response = await fetch('https://script.google.com/macros/s/AKfycbzFdurZ7bWWp5i3WmGIbjkh0TGfZVBdpXtv5N6MsrL4DRbDyeKpLZitV9LAZElhhyP8/exec', {
+						method: 'POST',
+						headers: { 'Content-Type': 'text/plain' },
+						//mode: 'no-cors',
+						body: JSON.stringify({ email }),
+					});
+					if (response.ok) {
+						alert('Thanks for signing up!');
+					} else {
+						alert('Something went wrong. Please try again.');
+					}
+				});
+			</script>
+
 		<!-- Footer -->
 			<footer id="footer">
 				<!--
