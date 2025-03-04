@@ -1,0 +1,68 @@
+{
+  "stressRelief": [
+    {
+      "role": "bot",
+      "content": "Hello! I'm your Stress Relief AI assistant. How are you feeling today?"
+    },
+    {
+      "role": "user",
+      "content": "I'm feeling overwhelmed with work and can't seem to focus."
+    },
+    {
+      "role": "bot",
+      "content": "I understand how that feels. Let's try a quick breathing exercise to help you center yourself. Take a deep breath in for 4 counts, hold for 2, and exhale for 6. Would you like to try that with me?"
+    },
+    {
+      "role": "user",
+      "content": "Yes, I'd like to try that."
+    },
+    {
+      "role": "bot",
+      "content": "Great! Let's begin. Breathe in... 1, 2, 3, 4... Hold... 1, 2... And exhale... 1, 2, 3, 4, 5, 6... How do you feel now?"
+    }
+  ],
+  "anxietyRelief": [
+    {
+      "role": "bot",
+      "content": "Hi there! I'm your Stress Relief AI assistant. What's on your mind today?"
+    },
+    {
+      "role": "user",
+      "content": "I have an important presentation tomorrow and I'm feeling really anxious about it."
+    },
+    {
+      "role": "bot",
+      "content": "That's completely understandable. Presentations can be nerve-wracking. Would you like to try a quick grounding exercise to help manage that anxiety?"
+    },
+    {
+      "role": "user",
+      "content": "Sure, what do I need to do?"
+    },
+    {
+      "role": "bot",
+      "content": "Let's try the 5-4-3-2-1 technique. Look around and name 5 things you can see, 4 things you can touch, 3 things you can hear, 2 things you can smell, and 1 thing you can taste. This helps bring you back to the present moment."
+    }
+  ],
+  "sleepIssues": [
+    {
+      "role": "bot",
+      "content": "Hello! I'm your Stress Relief AI assistant. How can I help you today?"
+    },
+    {
+      "role": "user",
+      "content": "I've been having trouble sleeping lately. My mind just won't shut off at night."
+    },
+    {
+      "role": "bot",
+      "content": "I'm sorry to hear you're struggling with sleep. That can be really frustrating. Would you like to try a progressive muscle relaxation exercise that might help?"
+    },
+    {
+      "role": "user",
+      "content": "Yes, I'm willing to try anything at this point."
+    },
+    {
+      "role": "bot",
+      "content": "Great. Find a comfortable position. We'll start by tensing and then relaxing each muscle group. Begin with your feet - curl your toes tightly for 5 seconds, then release. Notice the difference between tension and relaxation. We'll work our way up through your entire body."
+    }
+  ]
+}
