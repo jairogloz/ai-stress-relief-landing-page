@@ -885,3 +885,21 @@ button,
       left: auto;
       margin: 1em 0 0 0;
       position: relative; } }
+
+/* Hide the scrollbar */
+.chat-messages {
+  height: 300px;
+  overflow-y: auto;
+  margin-bottom: 1em;
+  padding-right: 0.5em;
+  scroll-behavior: smooth;
+}
+
+.chat-messages::-webkit-scrollbar {
+  display: none;
+}
+
+.chat-messages {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}

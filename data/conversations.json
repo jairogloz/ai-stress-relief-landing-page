@@ -1,68 +1,178 @@
 {
-  "stressRelief": [
+  "financialStress": [
+    {
+      "role": "user",
+      "content": "I'm really stressed about my finances. I feel like I can't make ends meet."
+    },
     {
       "role": "bot",
-      "content": "Hello! I'm your Stress Relief AI assistant. How are you feeling today?"
+      "content": "I'm sorry to hear that you're feeling this way. Financial stress can be incredibly overwhelming. Can you tell me more about what's going on?"
     },
     {
       "role": "user",
-      "content": "I'm feeling overwhelmed with work and can't seem to focus."
+      "content": "I've been struggling to pay my bills, and unexpected expenses keep popping up."
     },
     {
       "role": "bot",
-      "content": "I understand how that feels. Let's try a quick breathing exercise to help you center yourself. Take a deep breath in for 4 counts, hold for 2, and exhale for 6. Would you like to try that with me?"
+      "content": "Thank you for sharing that. Let's try a practical approach. How about creating a simple budget together? We can list your income, expenses, and see if there are areas where you can save or make adjustments. Would you like to try that?"
     },
     {
       "role": "user",
-      "content": "Yes, I'd like to try that."
-    },
-    {
-      "role": "bot",
-      "content": "Great! Let's begin. Breathe in... 1, 2, 3, 4... Hold... 1, 2... And exhale... 1, 2, 3, 4, 5, 6... How do you feel now?"
+      "content": "Yes, that sounds like a good idea. I already feel a bit more hopeful."
     }
   ],
-  "anxietyRelief": [
+  "estresFinanciero": [
+    {
+      "role": "user",
+      "content": "Estoy muy estresado por mis finanzas. Siento que no me alcanza el dinero."
+    },
     {
       "role": "bot",
-      "content": "Hi there! I'm your Stress Relief AI assistant. What's on your mind today?"
+      "content": "Lamento mucho que te sientas así. El estrés financiero puede ser muy abrumador. ¿Puedes contarme más sobre lo que está pasando?"
     },
     {
       "role": "user",
-      "content": "I have an important presentation tomorrow and I'm feeling really anxious about it."
+      "content": "He tenido dificultades para pagar mis cuentas y siempre surgen gastos inesperados."
     },
     {
       "role": "bot",
-      "content": "That's completely understandable. Presentations can be nerve-wracking. Would you like to try a quick grounding exercise to help manage that anxiety?"
+      "content": "Gracias por compartirlo. Vamos a abordar esto de manera práctica. ¿Qué te parece si creamos un presupuesto sencillo juntos? Podemos listar tus ingresos, gastos y ver si hay áreas donde puedas ahorrar o hacer ajustes. ¿Te gustaría intentarlo?"
     },
     {
       "role": "user",
-      "content": "Sure, what do I need to do?"
-    },
-    {
-      "role": "bot",
-      "content": "Let's try the 5-4-3-2-1 technique. Look around and name 5 things you can see, 4 things you can touch, 3 things you can hear, 2 things you can smell, and 1 thing you can taste. This helps bring you back to the present moment."
+      "content": "Sí, suena como una buena idea. Ya me siento un poco más esperanzado."
     }
   ],
-  "sleepIssues": [
+  "workStress": [
+    {
+      "role": "user",
+      "content": "I'm feeling so much pressure at work. I can't keep up with all the tasks."
+    },
     {
       "role": "bot",
-      "content": "Hello! I'm your Stress Relief AI assistant. How can I help you today?"
+      "content": "That sounds really tough. Work stress can take a big toll on your well-being. Can you share more about what's causing the pressure?"
     },
     {
       "role": "user",
-      "content": "I've been having trouble sleeping lately. My mind just won't shut off at night."
+      "content": "My workload has increased a lot recently, and I'm struggling to manage my time."
     },
     {
       "role": "bot",
-      "content": "I'm sorry to hear you're struggling with sleep. That can be really frustrating. Would you like to try a progressive muscle relaxation exercise that might help?"
+      "content": "Thank you for sharing. Let's try a practical step: How about using the Pomodoro technique? You can work for 25 minutes, then take a 5-minute break. It might help make tasks more manageable. What do you think?"
     },
     {
       "role": "user",
-      "content": "Yes, I'm willing to try anything at this point."
+      "content": "I like that idea. I'll give it a try."
+    }
+  ],
+  "estresLaboral": [
+    {
+      "role": "user",
+      "content": "Me siento muy presionado en el trabajo. No puedo mantenerme al día con todas las tareas."
     },
     {
       "role": "bot",
-      "content": "Great. Find a comfortable position. We'll start by tensing and then relaxing each muscle group. Begin with your feet - curl your toes tightly for 5 seconds, then release. Notice the difference between tension and relaxation. We'll work our way up through your entire body."
+      "content": "Eso suena muy difícil. El estrés laboral puede afectar mucho tu bienestar. ¿Puedes contarme más sobre lo que está causando esa presión?"
+    },
+    {
+      "role": "user",
+      "content": "Mi carga de trabajo ha aumentado mucho recientemente y me cuesta gestionar mi tiempo."
+    },
+    {
+      "role": "bot",
+      "content": "Gracias por compartirlo. Probemos un paso práctico: ¿Qué te parece utilizar la técnica Pomodoro? Trabajas durante 25 minutos y luego tomas un descanso de 5 minutos. Podría ayudarte a hacer las tareas más manejables. ¿Qué opinas?"
+    },
+    {
+      "role": "user",
+      "content": "Me gusta la idea. Voy a intentarlo."
+    }
+  ],
+  "relationshipStress": [
+    {
+      "role": "user",
+      "content": "I've been feeling really stressed about my relationship. It feels like we're always arguing."
+    },
+    {
+      "role": "bot",
+      "content": "That sounds really tough. Relationships can be a big source of stress. Can you tell me more about what’s been going on?"
+    },
+    {
+      "role": "user",
+      "content": "It feels like no matter what I say, we just end up in a fight."
+    },
+    {
+      "role": "bot",
+      "content": "Thank you for opening up about this. Let's try a practical step: How about setting aside a specific time to talk without distractions? You could both agree to listen to each other without interrupting. What do you think?"
+    },
+    {
+      "role": "user",
+      "content": "I think that could help. I’ll give it a try."
+    }
+  ],
+  "estresRelaciones": [
+    {
+      "role": "user",
+      "content": "Últimamente me siento muy estresado por mi relación. Parece que siempre estamos discutiendo."
+    },
+    {
+      "role": "bot",
+      "content": "Eso suena muy difícil. Las relaciones pueden ser una gran fuente de estrés. ¿Puedes contarme más sobre lo que ha estado pasando?"
+    },
+    {
+      "role": "user",
+      "content": "Siento que no importa lo que diga, siempre terminamos peleando."
+    },
+    {
+      "role": "bot",
+      "content": "Gracias por compartirlo. Probemos un paso práctico: ¿Qué te parece reservar un momento específico para hablar sin distracciones? Podrían acordar escucharse el uno al otro sin interrumpir. ¿Qué opinas?"
+    },
+    {
+      "role": "user",
+      "content": "Creo que eso podría ayudar. Lo voy a intentar."
+    }
+  ],
+  "healthStress": [
+    {
+      "role": "user",
+      "content": "I'm feeling really stressed about my health. I'm worried something might be wrong."
+    },
+    {
+      "role": "bot",
+      "content": "I'm sorry to hear that you're feeling this way. Health-related stress can be really tough. Would you like to tell me more about what's bothering you?"
+    },
+    {
+      "role": "user",
+      "content": "I've been having some strange symptoms and I can't stop thinking about the worst-case scenario."
+    },
+    {
+      "role": "bot",
+      "content": "Thank you for sharing that. Let's try a practical approach: How about making a list of your symptoms and preparing some questions for your doctor? This might help you feel more prepared and in control. How does that sound?"
+    },
+    {
+      "role": "user",
+      "content": "Yes, I think that would really help."
+    }
+  ],
+  "estresDeSalud": [
+    {
+      "role": "user",
+      "content": "Últimamente me siento muy estresado por mi salud. Me preocupa que algo pueda estar mal."
+    },
+    {
+      "role": "bot",
+      "content": "Lamento mucho que te sientas así. El estrés relacionado con la salud puede ser muy difícil de manejar. ¿Te gustaría contarme más sobre lo que te preocupa?"
+    },
+    {
+      "role": "user",
+      "content": "He tenido algunos síntomas extraños y no puedo dejar de pensar en lo peor."
+    },
+    {
+      "role": "bot",
+      "content": "Gracias por compartirlo. Podríamos intentar un ejercicio práctico: ¿Qué tal si haces una lista de tus síntomas y preparas algunas preguntas para tu médico? Esto podría ayudarte a sentirte más preparado y en control. ¿Te parece bien?"
+    },
+    {
+      "role": "user",
+      "content": "Sí, creo que eso me ayudaría mucho."
     }
   ]
 }

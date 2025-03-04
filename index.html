@@ -344,6 +344,8 @@
           } else {
             if (callback) callback();
           }
+          // Scroll to bottom while typing
+          chatMessages.scrollTop = chatMessages.scrollHeight;
         }
 
         element.textContent = "";
