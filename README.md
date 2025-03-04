@@ -21,10 +21,6 @@ Welcome to the **Stress Relief AI Chat** landing page! This project is designed 
 2. **Explore the Features**: Check out the slideshow background and the AI chat demo.
 3. **Sign Up**: Enter your email in the signup form to stay updated on our service.
 
-## Adding Images 🖼️
-
-The images in the `/images` folder are intentionally excluded from the repository to save space. When serving the app as a static website, for instance on S3, you can simply add the images to the `/images` folder. Ensure that the image paths in the code match the location of your images. Also, be sure to optimize your images for web purposes.
-
 ## Credits 🙌
 
 - **Demo Images**: Courtesy of [Unsplash](https://unsplash.com)

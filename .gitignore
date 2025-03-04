@@ -28,7 +28,3 @@ Thumbs.db
 
 # Ignore environment variables file
 .env
-
-# Ignore images folder to save space, you can add your own images
-# directly to the project
-images/
