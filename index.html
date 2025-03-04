@@ -123,21 +123,46 @@
         border-radius: 20px;
         padding: 0.5em 1em;
         cursor: pointer;
-      }
-
-      .conversation-selector {
-        margin-bottom: 1em;
         display: flex;
+        align-items: center;
         justify-content: center;
+        line-height: 1;
       }
 
-      .conversation-selector select {
-        background-color: rgba(255, 255, 255, 0.1);
-        color: white;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        border-radius: 4px;
-        padding: 0.5em;
-        width: 100%;
+      .conversation-info {
+        margin-bottom: 1em;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 0.8em;
+      }
+
+      .typing-indicator {
+        display: inline-block;
+        width: 20px;
+        text-align: left;
+      }
+
+      .typing-indicator::after {
+        content: "";
+        animation: typing 1.5s infinite;
+      }
+
+      @keyframes typing {
+        0% {
+          content: "";
+        }
+        25% {
+          content: ".";
+        }
+        50% {
+          content: "..";
+        }
+        75% {
+          content: "...";
+        }
+        100% {
+          content: "";
+        }
       }
 
       @media screen and (max-width: 980px) {
@@ -186,18 +211,7 @@
       <!-- Chat Demo Section -->
       <div class="chat-container">
         <div class="chat-header">
-          <img
-            src="https://via.placeholder.com/40/1cb495/ffffff?text=AI"
-            alt="AI Assistant"
-          />
           <h3>Stress Relief AI</h3>
-        </div>
-        <div class="conversation-selector">
-          <select id="conversation-select">
-            <option value="stressRelief">Work Stress Relief</option>
-            <option value="anxietyRelief">Presentation Anxiety</option>
-            <option value="sleepIssues">Sleep Issues</option>
-          </select>
         </div>
         <div class="chat-messages" id="chat-messages">
           <!-- Messages will be loaded dynamically from JSON -->
@@ -205,10 +219,11 @@
         <div class="chat-input">
           <input
             type="text"
-            placeholder="Type your message..."
+            placeholder="Watch the demo conversation..."
             id="user-input"
+            disabled
           />
-          <button id="send-button">Send</button>
+          <button id="send-button" disabled>Send</button>
         </div>
       </div>
     </div>
@@ -252,51 +267,42 @@
       const userInput = document.getElementById("user-input");
       const sendButton = document.getElementById("send-button");
       const chatMessages = document.getElementById("chat-messages");
-      const conversationSelect = document.getElementById("conversation-select");
 
       let conversations = {};
-      let randomResponses = [];
+      let conversationKeys = [];
+      let currentConversationIndex = 0;
+      let currentMessageIndex = 0;
+      let isTyping = false;
+      let typingTimeout = null;
 
       // Load conversation data from JSON files
       async function loadConversationData() {
         try {
           const conversationsResponse = await fetch("data/conversations.json");
           conversations = await conversationsResponse.json();
+          conversationKeys = Object.keys(conversations);
 
-          const responsesResponse = await fetch("data/responses.json");
-          const responsesData = await responsesResponse.json();
-          randomResponses = responsesData.randomResponses;
-
-          // Load the default conversation
-          loadConversation("stressRelief");
+          // Start the conversation animation
+          animateConversation();
         } catch (error) {
           console.error("Error loading conversation data:", error);
           // Fallback to hardcoded messages if JSON loading fails
           chatMessages.innerHTML = `
-						<div class="message bot-message">
-							<div class="message-content">
-								Hello! I'm your Stress Relief AI assistant. How are you feeling today?
-							</div>
-						</div>
-					`;
+            <div class="message bot-message">
+              <div class="message-content">
+                Hello! I'm your Stress Relief AI assistant. How are you feeling today?
+              </div>
+            </div>
+          `;
         }
       }
 
-      // Load a specific conversation
-      function loadConversation(conversationId) {
-        // Clear existing messages
-        chatMessages.innerHTML = "";
-
-        // Check if the conversation exists
-        if (conversations[conversationId]) {
-          // Add each message from the conversation
-          conversations[conversationId].forEach((message) => {
-            addMessage(message.content, message.role === "user");
-          });
-
-          // Scroll to bottom
-          chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
+      // Format conversation name for display
+      function formatConversationName(name) {
+        return name
+          .replace(/([A-Z])/g, " $1")
+          .replace(/^./, (str) => str.toUpperCase())
+          .trim();
       }
 
       // Add a message to the chat
@@ -308,47 +314,97 @@
 
         const messageContent = document.createElement("div");
         messageContent.className = "message-content";
-        messageContent.textContent = content;
+
+        if (content.length > 0) {
+          messageContent.textContent = content;
+        } else {
+          // Empty content for typing indicator
+          messageContent.innerHTML = '<span class="typing-indicator"></span>';
+        }
 
         messageDiv.appendChild(messageContent);
         chatMessages.appendChild(messageDiv);
 
         // Scroll to bottom
         chatMessages.scrollTop = chatMessages.scrollHeight;
+
+        return messageContent;
       }
 
-      // Get a random response from the responses array
-      function getRandomResponse() {
-        return randomResponses[
-          Math.floor(Math.random() * randomResponses.length)
-        ];
+      // Simulate typing effect for a message
+      function typeMessage(element, text, callback) {
+        let i = 0;
+        const speed = 30; // typing speed in milliseconds
+
+        function type() {
+          if (i < text.length) {
+            element.textContent += text.charAt(i);
+            i++;
+            setTimeout(type, speed);
+          } else {
+            if (callback) callback();
+          }
+        }
+
+        element.textContent = "";
+        type();
       }
 
-      // Handle sending a message
-      function handleSend() {
-        const message = userInput.value.trim();
-        if (message) {
-          addMessage(message, true);
-          userInput.value = "";
+      // Animate the current conversation
+      function animateConversation() {
+        if (currentConversationIndex >= conversationKeys.length) {
+          currentConversationIndex = 0;
+        }
 
-          // Simulate AI response after a short delay
+        const conversationKey = conversationKeys[currentConversationIndex];
+        const conversation = conversations[conversationKey];
+
+        if (currentMessageIndex >= conversation.length) {
+          // End of conversation, move to next one after a delay
+          currentMessageIndex = 0;
+          currentConversationIndex++;
+
+          // Clear chat before starting new conversation
           setTimeout(() => {
-            addMessage(getRandomResponse(), false);
+            chatMessages.innerHTML = "";
+            animateConversation();
+          }, 3000);
+
+          return;
+        }
+
+        const message = conversation[currentMessageIndex];
+        const isUser = message.role === "user";
+
+        // First show typing indicator
+        if (!isUser) {
+          const typingIndicator = addMessage("", isUser);
+
+          // After a short delay, replace with actual message
+          setTimeout(() => {
+            // Remove typing indicator
+            typingIndicator.innerHTML = "";
+
+            // Type out the message
+            typeMessage(typingIndicator, message.content, () => {
+              // Move to next message after a delay
+              currentMessageIndex++;
+              setTimeout(animateConversation, 1000);
+            });
           }, 1000);
+        } else {
+          // For user messages, just show them with a typing effect
+          const messageElement = addMessage("", isUser);
+
+          setTimeout(() => {
+            typeMessage(messageElement, message.content, () => {
+              // Move to next message after a delay
+              currentMessageIndex++;
+              setTimeout(animateConversation, 800);
+            });
+          }, 500);
         }
       }
-
-      // Event listeners
-      sendButton.addEventListener("click", handleSend);
-      userInput.addEventListener("keypress", (e) => {
-        if (e.key === "Enter") {
-          handleSend();
-        }
-      });
-
-      conversationSelect.addEventListener("change", (e) => {
-        loadConversation(e.target.value);
-      });
 
       // Load the conversation data when the page loads
       document.addEventListener("DOMContentLoaded", loadConversationData);
