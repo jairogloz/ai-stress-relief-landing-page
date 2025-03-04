@@ -1,56 +1,82 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <!--
 	Eventually by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
-		<title>Eventually by HTML5 UP</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body class="is-preload">
+  <head>
+    <title>Eventually by HTML5 UP</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+  </head>
+  <body class="is-preload">
+    <!-- Header -->
+    <header id="header">
+      <h1>Stress Relief AI Chat</h1>
+      <p>
+        Stress Relief AI Chat offers quick, guided conversations <br />
+        to help you reduce stress, gain mental clarity, and find peace...
+        <br />all powered by AI.<br />
+      </p>
+    </header>
 
-		<!-- Header -->
-			<header id="header">
-				<h1>Stress Relief AI Chat</h1>
-				<p>Stress Relief AI Chat offers quick, guided conversations <br/>
-					to help you reduce stress, gain mental clarity, and find peace...
-					<br/>all powered by AI.<br />
-			</header>
+    <!-- Signup Form -->
+    <form id="signup-form" method="post" action="#">
+      <input
+        type="email"
+        name="email"
+        id="email"
+        placeholder="Your Email Address"
+      />
+      <input type="submit" value="Sign Me Up!" />
+    </form>
 
-		<!-- Signup Form -->
-			<form id="signup-form" method="post" action="#">
-				<input type="email" name="email" id="email" placeholder="Your Email Address" />
-				<input type="submit" value="Sign Me Up!" />
-			</form>
+    <!-- Honeypot field (hidden from users) -->
+    <div style="position: absolute; left: -9999px">
+      <label for="website">Leave this field blank:</label>
+      <input type="text" name="website" id="website" />
+    </div>
 
-			<script>
-				document.getElementById('signup-form').addEventListener('submit', async (e) => {
-					e.preventDefault();
+    <script>
+      document
+        .getElementById("signup-form")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
 
-					// todo: validate email address
+          const honeypot = document.getElementById("website").value;
 
-					const email = document.getElementById('email').value;
-					const response = await fetch('https://script.google.com/macros/s/AKfycbzFdurZ7bWWp5i3WmGIbjkh0TGfZVBdpXtv5N6MsrL4DRbDyeKpLZitV9LAZElhhyP8/exec', {
-						method: 'POST',
-						headers: { 'Content-Type': 'text/plain' },
-						//mode: 'no-cors',
-						body: JSON.stringify({ email }),
-					});
-					if (response.ok) {
-						alert('Thanks for signing up!');
-					} else {
-						alert('Something went wrong. Please try again.');
-					}
-				});
-			</script>
+          // If the honeypot field is filled, block the submission
+          if (honeypot) {
+            console.warn("Bot detected - submission blocked");
+            return;
+          }
 
-		<!-- Footer -->
-			<footer id="footer">
-				<!--
+          const email = document.getElementById("email").value;
+          const response = await fetch(
+            "https://script.google.com/macros/s/AKfycbzFdurZ7bWWp5i3WmGIbjkh0TGfZVBdpXtv5N6MsrL4DRbDyeKpLZitV9LAZElhhyP8/exec",
+            {
+              method: "POST",
+              headers: { "Content-Type": "text/plain" },
+              //mode: 'no-cors',
+              body: JSON.stringify({ email }),
+            }
+          );
+          if (response.ok) {
+            alert("Thanks for signing up!");
+          } else {
+            alert("Something went wrong. Please try again.");
+          }
+        });
+    </script>
+
+    <!-- Footer -->
+    <footer id="footer">
+      <!--
 				<ul class="icons">
 					<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
 					<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
@@ -58,13 +84,13 @@
 					<li><a href="#" class="icon fa-envelope"><span class="label">Email</span></a></li>
 				</ul>
 				-->
-				<ul class="copyright">
-					<li>&copy; Untitled.</li><li>Credits: <a href="http://html5up.net">HTML5 UP</a></li>
-				</ul>
-			</footer>
+      <ul class="copyright">
+        <li>&copy; Untitled.</li>
+        <li>Credits: <a href="http://html5up.net">HTML5 UP</a></li>
+      </ul>
+    </footer>
 
-		<!-- Scripts -->
-			<script src="assets/js/main.js"></script>
-
-	</body>
+    <!-- Scripts -->
+    <script src="assets/js/main.js"></script>
+  </body>
 </html>
